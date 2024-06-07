@@ -21,10 +21,10 @@ const users: IUser[] = [];
 export default (req: NextApiRequest, res: NextApiResponse) => {
    const { name, email }: TUserCreate = req.body;
 
-   const isEmailRegistered = users.some(user => user.email === email);
+   const isEmailRegistered = users.some((user) => user.email === email);
 
-   if(isEmailRegistered){
-      return res.status(400).json("Email already registered.")
+   if (isEmailRegistered) {
+      return res.status(400).json("Email already registered.");
    }
 
    if (req.method === "POST") {
@@ -34,7 +34,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
          email,
       };
 
-	  users.push(newUser);
+      users.push(newUser);
 
       return res.status(201).json(newUser);
    }

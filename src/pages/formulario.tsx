@@ -13,8 +13,6 @@ import { CreateUserForm } from '@/components/CreateUserForm';
 import styles from '@/styles/formulario.module.css';
 
 export default function Form() {
-
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
