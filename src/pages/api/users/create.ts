@@ -15,10 +15,13 @@ import { NextApiRequest, NextApiResponse } from "next/types";
 import { IUser, TUserCreate } from "@/types/user.d";
 
 import { v4 as uuidv4 } from "uuid";
+import { ApiMethod } from "@/decorators/method";
 
 const users: IUser[] = [];
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
+   ApiMethod("POST");
+   
    if (req.method === "POST") {
       const { name, email }: TUserCreate = req.body;
       const isEmailRegistered = users.some((user) => user.email === email);
