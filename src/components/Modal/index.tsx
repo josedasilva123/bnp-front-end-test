@@ -1,4 +1,3 @@
-import { useOutClick } from "@/hooks/useOutClick";
 import styles from "./style.module.css";
 import { createPortal } from "react-dom";
 
@@ -7,7 +6,6 @@ type ModalProps = {
    title: string;
    isOpen: boolean;
    onClose?: (type: "click" | "esc", target: EventTarget) => void;
-   onOutClick?: () => void;
    onConfirm?: () => void;
    footer?: {
       hidden?: boolean;
@@ -23,10 +21,6 @@ type ModalProps = {
 */
 
 export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props }) => {
-   const modalRef = useOutClick<HTMLDivElement>(() => {
-      props.onOutClick?.();
-   });
-
    function handleCloseClick(e: React.MouseEvent) {
       props.onClose?.("click", e.target);
    }
@@ -48,7 +42,7 @@ export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props 
          onClick={handleCloseClick}
          onKeyDown={handleKeyDown}
       >
-         <div ref={modalRef} role="dialog" data-modal-container>
+         <div role="dialog" data-modal-container>
             <header data-modal-header>
                <h2>{title}</h2>
 
@@ -57,7 +51,7 @@ export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props 
                </button>
             </header>
 
-            {children}
+            <div data-modal-dynamic-content-box>{children}</div>
 
             {!props.footer?.hidden && (
                <div data-modal-footer>

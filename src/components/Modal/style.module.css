@@ -12,6 +12,8 @@
 	background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+
 .wrapper [data-modal-container] {
 	display: flex;
 	width: 750px;
@@ -36,7 +38,8 @@
 }
 
 .wrapper [data-modal-container] [data-modal-header],
-.wrapper [data-modal-container] [data-modal-footer] {
+.wrapper [data-modal-container] [data-modal-footer],
+.wrapper [data-modal-container] [data-modal-dynamic-content-box] {
 	padding: 1rem 1.5rem;
 }
 

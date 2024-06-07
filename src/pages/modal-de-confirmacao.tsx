@@ -17,6 +17,10 @@ import { Modal } from '@/components/Modal';
 export default function Home() {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
+	function modalClose(){
+		setModalIsOpen(false);
+	}
+
 	return (
 		<>
 			<main className={styles.container}>
@@ -25,7 +29,9 @@ export default function Home() {
 				</button>
 			</main>
 
-			
+			<Modal isOpen={modalIsOpen} title="Confirmação" onClose={() => modalClose()}>
+				<p>Tem certeza que deseja fazer isso?</p>
+			</Modal>
 			{/* Renderizar modal de confirmação */}
 		</>
 	);
