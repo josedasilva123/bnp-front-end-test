@@ -1,0 +1,11 @@
+.box{
+    width: 100%;
+}
+
+.box [data-input]{
+    width: 100%;
+}
+
+.box [data-error]{
+    color: #721c24
+}
