@@ -55,16 +55,18 @@ export const CreateUserForm: React.FC = () => {
             placeholder="Nome"
             {...register("name")}
             error={errors.name}
+            disabled={loading}
          />
          <Input
             type="email"
             placeholder="E-mail"
             {...register("email")}
             error={errors.email}
+            disabled={loading}
          />
 
-         <button type="submit" data-type="confirm">
-            Enviar
+         <button type="submit" data-type="confirm" disabled={loading}>
+            {loading ? "Enviando..." : "Enviar"}
          </button>
       </form>
    );
