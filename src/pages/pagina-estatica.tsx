@@ -7,12 +7,11 @@
  * - A página deve ser atualizada a cada 1 minuto
  */
 
-import { useEffect, useState } from "react";
-
 import styles from "@/styles/lista.module.css";
 import { ICity } from "@/types/city.d";
 import { GetStaticProps } from "next";
-import { cityRequest } from "@/data/cities/city.request";
+import { faker } from '@faker-js/faker/locale/pt_BR';
+import { loop } from "./api/cities/[length]";
 
 interface Props {
    cities: ICity[];
@@ -37,9 +36,20 @@ export default function List({ cities }: Props) {
 }
 
 export const getStaticProps = (async () => {
-	const data = await cityRequest.getCities();
+   /* há um erro de build ao tentar requistar a própria origem  */
+	//const data = await cityRequest.getCities();
+   // Embora este formato funciona locamente e com outras origens neste caso ele não é funcional
+
+   const cities: ICity[] = [];
+
+	for (const _ of loop(10)) {
+		cities.push({
+			id: faker.string.uuid(),
+			name: faker.location.city(),
+		});
+	}
  
-	return { props: { cities: data } };
+	return { props: { cities } };
  }) satisfies GetStaticProps<{
 	cities: ICity[];
  }>;
