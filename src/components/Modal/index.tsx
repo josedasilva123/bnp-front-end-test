@@ -25,6 +25,10 @@ export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props 
       props.onClose?.("click", e.target);
    }
 
+   function handleChildClick(e: React.MouseEvent) {
+      e.stopPropagation();
+   }
+
    function handleConfirmClick(e: React.MouseEvent) {
       props.onConfirm?.();
    }
@@ -39,10 +43,10 @@ export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props 
       <div
          data-modal-wrapper
          className={styles.wrapper}
-         onClick={handleCloseClick}
          onKeyDown={handleKeyDown}
+         onClick={handleCloseClick}
       >
-         <div role="dialog" data-modal-container>
+         <div role="dialog" data-modal-container onClick={handleChildClick}>
             <header data-modal-header>
                <h2>{title}</h2>
 
