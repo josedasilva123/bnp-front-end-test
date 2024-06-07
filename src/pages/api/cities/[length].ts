@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker/locale/pt_BR';
 import { ApiMethod } from '@/decorators/method';
 import { ICity } from '@/types/city';
 
-function loop(length: number) {
+export function loop(length: number) {
 	return Array.from({ length }, () => 1).map((_, index) => index + 1);
 }
 
