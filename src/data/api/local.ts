@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const LOCAL_BASE_URL = process.env.NEXT_PUBLIC_LOCAL_API_URL;
+export const LOCAL_BASE_URL = "http://localhost:8080/api";
 
 // Apenas lado cliente
 export const localApi = axios.create({
