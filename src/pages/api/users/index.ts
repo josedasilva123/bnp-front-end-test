@@ -15,8 +15,6 @@ import { NextApiRequest, NextApiResponse } from "next/types";
 import { ApiMethod } from "@/decorators/method";
 import { userDatabase } from "@/database/user.database";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-   ApiMethod("GET");
-
+export default ApiMethod("GET")(async (req: NextApiRequest, res: NextApiResponse) => {
    return res.status(200).json(userDatabase);
-};
+});

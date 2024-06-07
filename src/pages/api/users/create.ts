@@ -18,9 +18,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ApiMethod } from "@/decorators/method";
 import { userDatabase } from "@/database/user.database";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-   ApiMethod("POST");
-   
+export default ApiMethod("POST")(async (req: NextApiRequest, res: NextApiResponse) => {
    const { name, email }: TUserCreate = req.body;
    const isEmailRegistered = userDatabase.some((user) => user.email === email);
 
@@ -37,4 +35,4 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
    userDatabase.push(newUser);
 
    return res.status(201).json(newUser);
-};
+});
