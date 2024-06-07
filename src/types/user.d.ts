@@ -1,7 +1,7 @@
 export interface IUser {
-	id: number;
+	id: string;
 	name: string;
 	email: string;
 }
 
-export type IUserCreate = unknown;
+export type TUserCreate = Omit<IUser, "id">;

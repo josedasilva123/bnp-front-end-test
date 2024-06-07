@@ -9,26 +9,16 @@
  * - Lide com os possíveis erros
  */
 
+import { CreateUserForm } from '@/components/CreateUserForm';
 import styles from '@/styles/formulario.module.css';
 
 export default function Form() {
-	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-		event.preventDefault();
 
-		console.log('submit');
-	}
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
-				<form onSubmit={handleSubmit}>
-					<input type="text" placeholder="Name" />
-					<input type="email" placeholder="E-mail" />
-
-					<button type="submit" data-type="confirm">
-						Enviar
-					</button>
-				</form>
+				<CreateUserForm />
 			</div>
 		</div>
 	);
