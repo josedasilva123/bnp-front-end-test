@@ -10,12 +10,26 @@
  * - Você deve corrigir a interface IUserCreate em src/types/user.d.ts
  */
 
-import { NextApiRequest, NextApiResponse } from 'next/types';
+import { NextApiRequest, NextApiResponse } from "next/types";
 
-import { IUser, IUserCreate } from '@/types/user.d';
+import { IUser, TUserCreate } from "@/types/user.d";
+
+import { v4 as uuidv4 } from "uuid";
 
 const users: IUser[] = [];
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-	return res.status(400).json(undefined);
+   const { name, email }: TUserCreate = req.body;
+
+   if (req.method === "POST") {
+      const newUser = {
+         id: uuidv4(),
+         name,
+         email,
+      };
+
+	  users.push(newUser);
+
+      return res.status(201).json(newUser);
+   }
 };
