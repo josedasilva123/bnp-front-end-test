@@ -8,11 +8,10 @@
  */
 
 import styles from "@/styles/context-api.module.css";
-import { MessageProvider } from "@/providers/MessageContext";
 import { useMessage } from "@/hooks/useMessage";
 import { ToastList } from "@/components/ToastList";
 
-function ContextApiPage() {
+export default function ContextApi() {
    const { toastMessage } = useMessage();
 
    function handleSuccessButtonClick() {
@@ -36,13 +35,5 @@ function ContextApiPage() {
 
          <ToastList />
       </>
-   );
-}
-
-export default function ContextApi() {
-   return (
-      <MessageProvider>
-         <ContextApiPage />
-      </MessageProvider>
    );
 }

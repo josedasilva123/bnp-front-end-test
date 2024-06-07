@@ -1,0 +1,8 @@
+.header [data-header-menu] ol{
+    list-style: decimal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 40px;
+    flex-wrap: wrap;
+}

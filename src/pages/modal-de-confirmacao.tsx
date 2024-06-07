@@ -12,11 +12,10 @@ import { useState } from "react";
 
 import styles from "@/styles/modal.module.css";
 import { Modal } from "@/components/Modal";
-import { MessageProvider } from "@/providers/MessageContext";
 import { ToastList } from "@/components/ToastList";
 import { useMessage } from "@/hooks/useMessage";
 
-function HomePage() {
+export default function Home() {
    const { toastMessage } = useMessage();
 
    const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,7 +26,7 @@ function HomePage() {
 
    function modalConfirm() {
       console.log("Feito!");
-	  setModalIsOpen(false);
+      setModalIsOpen(false);
       toastMessage({
          message: "Parabéns, você fez a parada!",
          type: "success",
@@ -52,13 +51,5 @@ function HomePage() {
             <p>Tem certeza que deseja fazer isso?</p>
          </Modal>
       </>
-   );
-}
-
-export default function Home() {
-   return (
-      <MessageProvider>
-         <HomePage />
-      </MessageProvider>
    );
 }

@@ -11,10 +11,9 @@
 
 import { CreateUserForm } from "@/components/CreateUserForm";
 import { ToastList } from "@/components/ToastList";
-import { MessageProvider } from "@/providers/MessageContext";
 import styles from "@/styles/formulario.module.css";
 
-function FormPage() {
+export default function Form() {
    return (
       <div className={styles.container}>
          <div className={styles.content}>
@@ -23,13 +22,5 @@ function FormPage() {
 		 
 		 <ToastList />
       </div>
-   );
-}
-
-export default function Form() {
-   return (
-      <MessageProvider>
-         <FormPage />
-      </MessageProvider>
    );
 }

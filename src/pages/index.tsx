@@ -3,7 +3,7 @@ import styles from '@/styles/home.module.css';
 export default function Home() {
 	return (
 		<div className={styles.container}>
-			<ul>
+			<ol className='menu'>
 				<li>
 					<a href="/modal">Modal</a>
 				</li>
@@ -31,7 +31,7 @@ export default function Home() {
 				<li>
 					<a href="/ciclo-de-vida">Ciclo de vida de componente</a>
 				</li>
-			</ul>
+			</ol>
 		</div>
 	);
 }
