@@ -19,15 +19,14 @@ import { v4 as uuidv4 } from "uuid";
 const users: IUser[] = [];
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-   const { name, email }: TUserCreate = req.body;
-
-   const isEmailRegistered = users.some((user) => user.email === email);
-
-   if (isEmailRegistered) {
-      return res.status(400).json("Email already registered.");
-   }
-
    if (req.method === "POST") {
+      const { name, email }: TUserCreate = req.body;
+      const isEmailRegistered = users.some((user) => user.email === email);
+
+      if (isEmailRegistered) {
+         return res.status(400).json("Email already registered.");
+      }
+
       const newUser = {
          id: uuidv4(),
          name,

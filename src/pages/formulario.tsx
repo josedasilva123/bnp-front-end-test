@@ -9,15 +9,27 @@
  * - Lide com os possíveis erros
  */
 
-import { CreateUserForm } from '@/components/CreateUserForm';
-import styles from '@/styles/formulario.module.css';
+import { CreateUserForm } from "@/components/CreateUserForm";
+import { ToastList } from "@/components/ToastList";
+import { MessageProvider } from "@/providers/MessageContext";
+import styles from "@/styles/formulario.module.css";
+
+function FormPage() {
+   return (
+      <div className={styles.container}>
+         <div className={styles.content}>
+            <CreateUserForm />
+         </div>
+		 
+		 <ToastList />
+      </div>
+   );
+}
 
 export default function Form() {
-	return (
-		<div className={styles.container}>
-			<div className={styles.content}>
-				<CreateUserForm />
-			</div>
-		</div>
-	);
+   return (
+      <MessageProvider>
+         <FormPage />
+      </MessageProvider>
+   );
 }

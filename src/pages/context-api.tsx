@@ -8,12 +8,12 @@
  */
 
 import styles from "@/styles/context-api.module.css";
-import { ToastMessage } from "@/components/ToastMessage";
 import { MessageProvider } from "@/providers/MessageContext";
 import { useMessage } from "@/hooks/useMessage";
+import { ToastList } from "@/components/ToastList";
 
 function ContextApiPage() {
-   const { toastMessageList, toastMessage } = useMessage();
+   const { toastMessage } = useMessage();
 
    function handleSuccessButtonClick() {
       toastMessage({ message: "Mensagem de sucesso!", type: "success" });
@@ -34,11 +34,7 @@ function ContextApiPage() {
             </button>
          </div>
 
-         <div className={styles["toast-container"]}>
-            {toastMessageList.map((message) => (
-               <ToastMessage key={message.id} content={message} />
-            ))}
-         </div>
+         <ToastList />
       </>
    );
 }
