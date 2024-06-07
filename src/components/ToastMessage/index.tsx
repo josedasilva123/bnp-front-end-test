@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useRef } from "react";
 import { IToastMessage } from "@/types/toast-message.d";
-
 import styles from "./style.module.css";
 import { useMessage } from "@/hooks/useMessage";
 
@@ -11,10 +9,28 @@ type ToastMessageProps = {
 
 export const ToastMessage: React.FC<ToastMessageProps> = ({ content: data }) => {
    const { removeToast } = useMessage();
+   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
    useEffect(() => {
-      setTimeout(() => removeToast(data.id), data.duration ? data.duration : 3000);
+      timeoutRef.current = setTimeout(
+         () => removeToast(data.id),
+         data.duration ? data.duration : 3000
+      );
+
+      return () => {
+         if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+         }
+      };
    }, []);
+
+   const handleRemoveButtonClick = () => {
+      if (timeoutRef.current) {
+         clearTimeout(timeoutRef.current);
+      }
+
+      removeToast(data.id);
+   };
 
    return (
       <div
@@ -24,7 +40,9 @@ export const ToastMessage: React.FC<ToastMessageProps> = ({ content: data }) => 
       >
          <span data-content>{data.message}</span>
 
-         <span data-close>╳</span>
+         <span data-close onClick={handleRemoveButtonClick}>
+            ╳
+         </span>
       </div>
    );
 };

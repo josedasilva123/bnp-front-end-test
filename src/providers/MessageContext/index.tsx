@@ -21,7 +21,7 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
 
    function removeToast(messageId: string) {
       setToastMessageList((messageList) =>
-         messageList.filter((message) => message.id === messageId)
+         messageList.filter((message) => message.id !== messageId)
       );
    }
 
