@@ -12,32 +12,29 @@
 
 import { NextApiRequest, NextApiResponse } from "next/types";
 
-import { IUser, TUserCreate } from "@/types/user.d";
+import { TUserCreate } from "@/types/user.d";
 
 import { v4 as uuidv4 } from "uuid";
 import { ApiMethod } from "@/decorators/method";
-
-const users: IUser[] = [];
+import { userDatabase } from "@/database/user.database";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
    ApiMethod("POST");
    
-   if (req.method === "POST") {
-      const { name, email }: TUserCreate = req.body;
-      const isEmailRegistered = users.some((user) => user.email === email);
+   const { name, email }: TUserCreate = req.body;
+   const isEmailRegistered = userDatabase.some((user) => user.email === email);
 
-      if (isEmailRegistered) {
-         return res.status(400).json("Email already registered.");
-      }
-
-      const newUser = {
-         id: uuidv4(),
-         name,
-         email,
-      };
-
-      users.push(newUser);
-
-      return res.status(201).json(newUser);
+   if (isEmailRegistered) {
+      return res.status(400).json("Email already registered.");
    }
+
+   const newUser = {
+      id: uuidv4(),
+      name,
+      email,
+   };
+
+   userDatabase.push(newUser);
+
+   return res.status(201).json(newUser);
 };

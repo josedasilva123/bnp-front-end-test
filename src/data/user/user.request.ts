@@ -1,4 +1,4 @@
-import { TUserCreate } from "@/types/user";
+import { IUser, TUserCreate } from "@/types/user";
 import { localApi } from "../api/local";
 
 const create = async (body: TUserCreate) => {
@@ -7,4 +7,10 @@ const create = async (body: TUserCreate) => {
    return data;
 };
 
-export const userRequest = { create };
+const getUsers = async () => {
+   const { data } = await localApi.get<IUser[]>("/users");
+
+   return data;
+}
+
+export const userRequest = { create, getUsers };

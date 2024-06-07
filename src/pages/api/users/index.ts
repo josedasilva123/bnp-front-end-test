@@ -10,12 +10,13 @@
  * - Utilize a interface IUser para tipar os dados
  */
 
-import { NextApiRequest, NextApiResponse } from 'next/types';
+import { NextApiRequest, NextApiResponse } from "next/types";
 
-import { IUser } from '@/types/user.d';
+import { ApiMethod } from "@/decorators/method";
+import { userDatabase } from "@/database/user.database";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-	const users: Array<unknown> = [];
+   ApiMethod("GET");
 
-	return res.status(500).json(users);
+   return res.status(200).json(userDatabase);
 };
