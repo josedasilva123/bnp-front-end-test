@@ -1,4 +1,4 @@
-# Teste técnico BNP Soluções
+# Teste técnico - BNP Soluções - Alex Conder
 
 Projeto desenvolvido com NextJS 13 no modelo Page Router.
 
