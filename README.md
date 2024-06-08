@@ -4,6 +4,8 @@ Projeto desenvolvido com NextJS 13 no modelo Page Router.
 
 Bibliotecas utilizadas: Axios, React Hook Form, Zod, Uuid
 
+Link de deploy: (https://bnp-front-end-test.vercel.app)
+
 ## Iniciar projeto localmente
 
 ```bash
