@@ -25,10 +25,10 @@ export default function ContextApi() {
    return (
       <>
          <div className={styles.container}>
-            <button type="button" onClick={handleSuccessButtonClick}>
+            <button data-success-button type="button" onClick={handleSuccessButtonClick}>
                Disparar mensagem de sucesso
             </button>
-            <button type="button" onClick={handleErrorButtonClick}>
+            <button data-error-button type="button" onClick={handleErrorButtonClick}>
                Disparar mensagem de erro
             </button>
          </div>

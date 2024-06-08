@@ -17,7 +17,3 @@ O projeto ira iniciar em (http://localhost:8080)
 ```bash
 npm install && npm run build && npm run start
 ```
-
-## Variáveis de ambiente necessárias
-
-Confira o arquivo `.env.example` para maiores informações.

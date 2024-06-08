@@ -40,9 +40,9 @@ export const Counter: React.FC<CounterProps> = ({ count, setCount }) => {
    };
 
    return (
-      <div>
+      <div data-counter>
          <h2>Contador: {count}</h2>
-         <button onClick={handleIncrement}>Incrementar +</button>
+         <button data-increment-button onClick={handleIncrement}>Incrementar +</button>
       </div>
    );
 };

@@ -34,12 +34,12 @@ export const CreateUserForm: React.FC = () => {
             error.response?.data === "Email already registered."
          ) {
             toastMessage({
-               message: "Email já cadastrado",
+               message: "Email já cadastrado.",
                type: "error",
             });
          } else {
             toastMessage({
-               message: "Ocorreu um erro",
+               message: "Ocorreu um erro.",
                type: "error",
             });
          }
@@ -49,7 +49,7 @@ export const CreateUserForm: React.FC = () => {
    };
 
    return (
-      <form onSubmit={handleSubmit(submit)}>
+      <form data-create-user-form onSubmit={handleSubmit(submit)}>
          <Input
             type="text"
             placeholder="Nome"

@@ -47,7 +47,7 @@ export default function Home() {
    return (
       <>
          <main className={styles.container}>
-            <button type="button" onClick={() => setModalIsOpen(true)}>
+            <button id="open-modal" type="button" onClick={() => setModalIsOpen(true)}>
                Abrir modal
             </button>
          </main>

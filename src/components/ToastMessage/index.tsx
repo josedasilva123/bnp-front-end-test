@@ -35,6 +35,7 @@ export const ToastMessage: React.FC<ToastMessageProps> = ({ content: data }) => 
    return (
       <div
          className={styles.container}
+         data-toast
          data-toast-type={data.type}
          data-toast-id={data.id}
       >

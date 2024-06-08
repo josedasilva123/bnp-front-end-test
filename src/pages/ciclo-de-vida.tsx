@@ -72,7 +72,7 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
    return (
       <div className={styles.container}>
          <div>
-            <button type="button" onClick={handleOcultCounterClick}>
+            <button data-toggle-counter type="button" onClick={handleOcultCounterClick}>
                {showCounter ? "Ocultar contador" : "Mostrar contador"}
             </button>
 
