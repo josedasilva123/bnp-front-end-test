@@ -1,11 +1,11 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
 type CounterProps = {
-   count: number;
-   setCount: Dispatch<SetStateAction<number>>;
+   initialCount: number;
 };
 
-export const Counter: React.FC<CounterProps> = ({ count, setCount }) => {
+export const Counter: React.FC<CounterProps> = ({ initialCount }) => {
+   const [count, setCount] = useState(initialCount);
    const [isReady, setIsReady] = useState(false);
 
    useEffect(() => {

@@ -28,7 +28,6 @@ type CicloDeVidaProps = {
 export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
    const [isReady, setIsReady] = useState(false);
    const [showCounter, setShowCounter] = useState(false);
-   const [count, setCount] = useState(initialCount);
 
    const handleOcultCounterClick = () => {
       setShowCounter((prevState) => !prevState);
@@ -49,7 +48,6 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
          const count = event.detail.count;
          if (count === 10) {
             setShowCounter(false);
-            setCount(0);
          }
       };
 
@@ -66,7 +64,7 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
          window.removeEventListener("onCounterUnmount", handleUnmount);
          window.removeEventListener("onCounterUpdate", handleUpdate);
       };
-   }, [count]);
+   }, []);
 
    return (
       <div className={styles.container}>
@@ -80,7 +78,7 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
                   <h1>Exemplo de Ciclo de vida</h1>
 
                   <div data-content>
-                     <Counter count={count} setCount={setCount} />
+                     <Counter initialCount={initialCount} />
                   </div>
                </>
             )}
