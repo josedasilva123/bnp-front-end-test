@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
    return (
       <>
          <Head>
-            <title>Teste Front-End - BNP</title>
+            <title>Teste Front-End - BNP - Alex Conder</title>
          </Head>
 
          <DefaultTemplate>
