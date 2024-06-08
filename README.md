@@ -29,3 +29,5 @@ npm run cypress
 ```
 
 É necessário instalar as dependências para o comando ser bem sucedido. 
+
+(Observação: Cypress depende do aplicativo rodando locamente para funcionar)
