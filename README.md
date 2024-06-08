@@ -28,4 +28,4 @@ Todas as features foram testadas com Cypress, a interface de testes pode ser ini
 npm run cypress
 ```
 
-É necessário instalar as dependências para o comando ser bem sucedido. (Teste devem rodar na build para evitar o efeito do StrictMode duplicando as execuções de ciclo de vida)
+É necessário instalar as dependências para o comando ser bem sucedido. 
