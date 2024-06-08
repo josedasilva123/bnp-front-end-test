@@ -35,38 +35,37 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
    };
 
    useEffect(() => {
+      const handleMount = (event: CustomEventInit) => {
+         console.log("onCounterMount", event.detail);
+      };
+
+      const handleUnmount = (event: CustomEventInit) => {
+         console.log("onCounterUnmount", event.detail);
+      };
+
+      const handleUpdate = (event: CustomEventInit) => {
+         console.log("onCounterUpdate");
+
+         const count = event.detail.count;
+         if (count === 10) {
+            setShowCounter(false);
+            setCount(0);
+         }
+      };
+
       if (!isReady) {
-         const handleMount = (event: CustomEventInit) => {
-            console.log("onCounterMount", event.detail);
-         };
-
-         const handleUnmount = (event: CustomEventInit) => {
-            console.log("onCounterUnmount", event.detail);
-         };
-
-         const handleUpdate = (event: CustomEventInit) => {
-            console.log("onCounterUpdate");
-
-            const count = event.detail.count;
-            if (count === 10) {
-               setShowCounter(false);
-               setCount(0);
-            }
-         };
-
          window.addEventListener("onCounterMount", handleMount);
          window.addEventListener("onCounterUnmount", handleUnmount);
          window.addEventListener("onCounterUpdate", handleUpdate);
 
          setIsReady(true);
       }
-   }, [count]);
 
-   useEffect(() => {
-      if (count >= 10) {
-         setShowCounter(false);
-         setCount(0);
-      }
+      return () => {
+         window.removeEventListener("onCounterMount", handleMount);
+         window.removeEventListener("onCounterUnmount", handleUnmount);
+         window.removeEventListener("onCounterUpdate", handleUpdate);
+      };
    }, [count]);
 
    return (
