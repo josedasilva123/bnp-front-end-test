@@ -17,3 +17,13 @@ O projeto ira iniciar em (http://localhost:8080)
 ```bash
 npm install && npm run build && npm run start
 ```
+
+## Teste automáticos
+
+Todas as features foram testadas com Cypress, a interface de testes pode ser iniciada com o comando
+
+```bash
+npm run cypress
+```
+
+É necessário instalar as dependências para o comando ser bem sucedido.
